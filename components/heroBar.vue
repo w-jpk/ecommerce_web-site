@@ -114,7 +114,7 @@
       .stat-divider {
         width: 1px;
         height: 50px;
-        background-color: #ccc;
+        background-color: $border-color;
       }
     }
   }

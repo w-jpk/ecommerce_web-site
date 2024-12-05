@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <section>
     <hero-bar />
     <brands-feed />
-  </div>
+    <product-section />
+  </section>
 </template>
 
 <script setup></script>

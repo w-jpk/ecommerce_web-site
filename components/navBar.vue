@@ -27,7 +27,7 @@
         </nav>
 
         <div class="search-container">
-          <span class="search-icon">🔍</span>
+          <Icon name="tabler:search" class="search-icon" />
 
           <input
             type="text"
@@ -37,9 +37,9 @@
       </div>
 
       <div class="navbar-actions">
-        <button class="icon-btn">🛒</button>
+        <Icon name="mdi:cart-outline" class="icon-btn" />
 
-        <button class="icon-btn">👤</button>
+        <Icon name="mingcute:user-4-line" class="icon-btn" />
       </div>
     </div>
   </header>
@@ -125,8 +125,9 @@
 
         .search-icon {
           position: absolute;
-          left: 10px;
-          font-size: 16px;
+          width: 24px;
+          height: 24px;
+          left: 1rem;
           color: gray;
         }
 
@@ -152,9 +153,9 @@
       gap: 15px;
 
       .icon-btn {
-        background: none;
-        border: none;
-        font-size: 20px;
+        color: black;
+        width: 24px;
+        height: 24px;
         cursor: pointer;
 
         &:hover {
