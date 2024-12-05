@@ -3,6 +3,7 @@
     <hero-bar />
     <brands-feed />
     <product-section />
+    <category-section />
   </section>
 </template>
 
