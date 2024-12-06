@@ -22,7 +22,7 @@
 .container {
   padding: 0 5rem;
   min-height: max-content;
-  background-color: $background-color;
+  background-color: white;
 
   .category__back {
     display: flex;

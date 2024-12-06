@@ -4,6 +4,8 @@
     <brands-feed />
     <product-section />
     <category-section />
+    <customers-section />
+    <footer-bar />
   </section>
 </template>
 

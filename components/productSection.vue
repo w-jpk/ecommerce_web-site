@@ -40,7 +40,7 @@
 .container {
   min-height: 100vh;
   padding: 0 5rem;
-  background-color: $background-color;
+  background-color: white;
 
   .new-arriwals__section {
     display: flex;
