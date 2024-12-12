@@ -68,6 +68,7 @@
       height: 40px;
       border: 1px solid $border-color;
       border-radius: 2rem;
+      cursor: pointer;
 
       .view-all__text {
         color: $text-color;

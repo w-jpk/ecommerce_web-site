@@ -1,13 +1,13 @@
 <template>
-  <header class="navbar">
-    <div class="navbar-top">
+  <header class="navbar" :class="{ sticky: isSticky }">
+    <div class="navbar-top" v-show="isShow">
       <p>
         Зарегистрируйтесь и получите скидку 20% на первый заказ.
 
         <a href="#" class="signup-link">Зарегистрироваться</a>
       </p>
 
-      <button class="close-btn">✕</button>
+      <button class="close-btn" @click="toggleShow">✕</button>
     </div>
 
     <div class="navbar-main">
@@ -45,7 +45,28 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+let isShow = ref(true);
+const isSticky = ref(false);
+
+const toggleShow = () => {
+  isShow.value = !isShow.value;
+};
+
+const handleScroll = () => {
+  isSticky.value = window.scrollY > 50;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+</script>
 
 <style lang="scss" scoped>
 .navbar {
@@ -164,5 +185,14 @@
       }
     }
   }
+}
+
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 </style>

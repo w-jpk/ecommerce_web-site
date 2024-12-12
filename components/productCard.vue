@@ -1,7 +1,10 @@
 <template>
   <div class="card">
     <div class="card__product__img">
-      <img class="card__img" src="/assets/image/model.jpg" alt="Product Card" />
+      <img
+        class="card__img"
+        src="/assets/image/product.png"
+        alt="Product Card" />
     </div>
 
     <div class="card__info">
@@ -50,12 +53,21 @@
   .card__product__img {
     width: 295px;
     height: 298px;
+    cursor: pointer;
+    overflow: hidden;
 
     .card__img {
       border-radius: 1rem;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover {
+    .card__img {
+      transform: scale(1.1);
     }
   }
 
