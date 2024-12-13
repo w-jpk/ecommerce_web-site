@@ -31,7 +31,7 @@
 
           <input
             type="text"
-            placeholder="Search for products..."
+            placeholder="Поиск товаров..."
             class="search-input" />
         </div>
       </div>
@@ -121,7 +121,6 @@ onUnmounted(() => {
         display: flex;
         text-wrap: nowrap;
         align-items: center;
-        // width: 100%;
         gap: 2rem;
         a {
           text-decoration: none;

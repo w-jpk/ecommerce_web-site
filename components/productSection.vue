@@ -73,6 +73,15 @@
       .view-all__text {
         color: $text-color;
       }
+
+      &:hover {
+        background-color: black;
+        border: none;
+
+        .view-all__text {
+          color: $light-text-color;
+        }
+      }
     }
   }
 

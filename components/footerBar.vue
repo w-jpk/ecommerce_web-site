@@ -8,8 +8,15 @@
             НАШИХ ПОСЛЕДНИХ ПРЕДЛОЖЕНИЙ
           </h3>
           <div class="feadback__section__action">
-            <input type="text" />
-            <button>Подписаться на уведомления</button>
+            <div class="email-container">
+              <Icon name="ic:outline-email" class="email-icon" />
+
+              <input
+                type="text"
+                placeholder="Введите ваш email адрес"
+                class="email-input" />
+            </div>
+            <button class="success-btn">Подписаться на уведомления</button>
           </div>
         </div>
       </div>
@@ -18,7 +25,7 @@
       <div class="footer__content__servives">
         <div class="footer__column">
           <div class="footer__brand">
-            <h3 class="footer__logo">SHOP.CO</h3>
+            <h3 class="footer__logo">SHOP.JPK</h3>
             <p class="footer__description">
               We have clothes that suits your style and which you're proud to
               wear. From women to men.
@@ -74,7 +81,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>Shop.jpk © 2000-2023, All Rights Reserved</p>
+        <p>Shop.jpk © 2024, All Rights Reserved</p>
         <div class="footer__payments">
           <!-- <img src="visa.png" alt="Visa" />
         <img src="mastercard.png" alt="Mastercard" />
@@ -129,14 +136,42 @@
           width: 350px;
           gap: 2rem;
 
-          input {
-            border-radius: 3rem;
-            height: 45px;
+          .email-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: #f3f3f3;
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 100%;
+
+            .email-icon {
+              position: absolute;
+              width: 24px;
+              height: 24px;
+              left: 1rem;
+              color: gray;
+            }
+
+            .email-input {
+              width: 100%;
+              padding: 8px 8px 8px 35px;
+              border: none;
+              outline: none;
+              background-color: transparent;
+              font-size: 14px;
+              color: black;
+
+              &::placeholder {
+                color: gray;
+              }
+            }
           }
 
-          button {
+          .success-btn {
             border-radius: 3rem;
             height: 45px;
+            cursor: pointer;
           }
         }
       }
@@ -172,9 +207,9 @@
             margin: 0.5rem 0;
             a {
               text-decoration: none;
-              color: #333;
+              color: black;
               &:hover {
-                color: #ff6f61;
+                color: gray;
               }
             }
           }

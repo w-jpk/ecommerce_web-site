@@ -9,18 +9,12 @@
     </div>
 
     <div class="customer__slider">
-      <div class="customer__track">
+      <div class="customer__track" :style="trackStyle">
         <div
           v-for="(customer, index) in customers"
           :key="index"
           class="customer__card"
-          :class="{
-            'customer__card--active': index === currentSlide,
-            'customer__card--near': Math.abs(currentSlide - index) <= 1,
-          }"
-          :style="{
-            transform: `translateX(calc(${(index - currentSlide) * 33.33}%))`,
-          }">
+          :class="{ 'customer__card--blurred': !isCardVisible(index) }">
           <customers-card :name="customer.name" :text="customer.text" />
         </div>
       </div>
@@ -29,7 +23,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const customers = ref([
   {
@@ -52,17 +46,44 @@ const customers = ref([
     name: "Michael T.",
     text: "Excellent service and unique designs. A true gem for shopping.",
   },
+  {
+    name: "James L.",
+    text: "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+  },
+  {
+    name: "Alex K.",
+    text: "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+  },
+  {
+    name: "Michael T.",
+    text: "Excellent service and unique designs. A true gem for shopping.",
+  },
 ]);
 
 const currentSlide = ref(0);
+const visibleCount = 3;
+
+const trackStyle = computed(() => {
+  return {
+    transform: `translateX(-${currentSlide.value * (100 / visibleCount)}%)`,
+  };
+});
+
+const isCardVisible = (index) => {
+  return (
+    index >= currentSlide.value && index < currentSlide.value + visibleCount
+  );
+};
 
 const prevSlide = () => {
-  currentSlide.value =
-    (currentSlide.value - 1 + customers.value.length) % customers.value.length;
+  currentSlide.value = Math.max(currentSlide.value - visibleCount, 0);
 };
 
 const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % customers.value.length;
+  currentSlide.value = Math.min(
+    currentSlide.value + visibleCount,
+    customers.value.length - visibleCount
+  );
 };
 </script>
 
@@ -101,26 +122,27 @@ const nextSlide = () => {
     display: flex;
     justify-content: center;
     width: 100%;
+    padding: 0 5rem;
 
     .customer__track {
       display: flex;
       transition: transform 0.5s ease;
-      width: calc(100% * 5);
+      width: 100%;
     }
 
     .customer__card {
-      flex: 0 0 30%;
-      margin: 3rem -5rem;
+      display: flex;
+      justify-content: space-around;
+      flex: 0 0 calc(100% / 3);
+      margin-bottom: 1rem;
       transition: all 0.5s ease;
-      opacity: 0.5;
-      transform: scale(0.8);
-      filter: blur(5px);
+      opacity: 1;
+      transform: scale(1);
 
-      &--active {
-        opacity: 1;
-        transform: scale(1);
-        filter: none;
-        margin-left: 5rem;
+      &--blurred {
+        opacity: 0.5;
+        filter: blur(5px);
+        transform: scale(0.9);
       }
     }
   }
