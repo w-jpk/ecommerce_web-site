@@ -1,10 +1,10 @@
 <template>
   <section>
-    <hero-bar />
-    <brands-feed />
-    <product-section />
-    <category-section />
-    <customers-section />
+    <main-page-hero-bar />
+    <main-page-brands-feed />
+    <main-page-product-section />
+    <main-page-category-section />
+    <main-page-customers-section />
   </section>
 </template>
 
