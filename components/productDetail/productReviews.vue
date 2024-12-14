@@ -1,7 +1,26 @@
 <template>
   <section class="product-reviews">
     <div class="product-reviews__container">
-      <h3 class="product-reviews__title">Отзывы</h3>
+      <div class="product-reviews__actions__container">
+        <h3 class="product-reviews__actions__title">
+          Отзывы
+          <span class="product-reviews__actions__count"
+            >({{ customers.length }})</span
+          >
+        </h3>
+
+        <div class="product-reviews__actions">
+          <div class="product-reviews__actions__filter">
+            <Icon name="lets-icons:filter" class="icon" />
+          </div>
+
+          <div class="product-reviews__actions__sort">Последние</div>
+
+          <button class="product-reviews__actions__write">
+            Написать отзыв
+          </button>
+        </div>
+      </div>
 
       <div class="product-reviews__list">
         <div v-for="(customer, index) in customers" :key="index">
@@ -57,10 +76,64 @@ const customers = ref([
     margin: 0;
     padding: 0;
 
-    .product-reviews__title {
-      font-size: 40px;
-      font-weight: bold;
+    .product-reviews__actions__container {
+      display: flex;
+      justify-content: space-between;
       margin-bottom: 1rem;
+
+      .product-reviews__actions__title {
+        display: flex;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+        gap: 0.5rem;
+
+        .product-reviews__actions__count {
+          font-size: 24px;
+          font-weight: normal;
+          color: $second-text-color;
+        }
+      }
+
+      .product-reviews__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .product-reviews__actions__filter {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $background-color-light;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          padding: 10px;
+          cursor: pointer;
+
+          .icon {
+            color: black;
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        .product-reviews__actions__sort {
+          background: $background-color-light;
+          padding: 15px;
+          border-radius: 2rem;
+          cursor: pointer;
+        }
+
+        .product-reviews__actions__write {
+          background: black;
+          color: white;
+          padding: 15px;
+          border-radius: 2rem;
+          border: none;
+          cursor: pointer;
+        }
+      }
     }
 
     .product-reviews__list {
