@@ -1,5 +1,6 @@
 <template>
   <section>
+    <history-bar />
     <product-detail />
     <product-detail-info-section />
   </section>
