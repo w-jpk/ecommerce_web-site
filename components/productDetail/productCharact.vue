@@ -7,6 +7,21 @@
         <div class="product-charact__main-info">
           <h5 class="product-charact__main-info__title">Основная информация</h5>
           <div class="product-charact__item">
+            <p class="product-charact__title-label">Артикул</p>
+
+            <p
+              class="product-charact__article"
+              id="copyText"
+              readonly
+              @click="copyText">
+              174474163<Icon
+                name="lucide:copy"
+                class="copy"
+                @click="copyText" />
+            </p>
+          </div>
+
+          <div class="product-charact__item">
             <p class="product-charact__title-label">Состав</p>
 
             <p class="product-charact__desc">
@@ -107,7 +122,22 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+const copyText = () => {
+  const textElement = document.getElementById("copyText");
+
+  const range = document.createRange();
+  range.selectNodeContents(textElement);
+
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  document.execCommand("copy");
+
+  selection.removeAllRanges();
+};
+</script>
 
 <style lang="scss" scoped>
 #container {
@@ -170,6 +200,25 @@
         .product-charact__desc {
           color: $text-color;
           align-self: flex-end;
+        }
+
+        .product-charact__article {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+          color: $text-color;
+          align-self: flex-end;
+          cursor: pointer;
+
+          &:hover {
+            .copy {
+              color: $text-color;
+            }
+          }
+
+          .copy {
+            color: $second-text-color;
+          }
         }
       }
     }
