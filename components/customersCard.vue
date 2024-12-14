@@ -1,8 +1,10 @@
 <template>
   <div class="comment-card">
-    <div class="stars">
-      <i class="star" v-for="star in 5" :key="star">★</i>
-    </div>
+    <span class="stars">
+      <Icon name="mdi:star" v-for="star in 4" :key="star" class="star filled" />
+
+      <Icon name="mdi:star-half-full" class="star half" />
+    </span>
     <div class="user-info">
       <p class="user-name">{{ name }}</p>
       <span class="verified">✔</span>

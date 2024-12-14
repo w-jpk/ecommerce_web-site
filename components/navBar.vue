@@ -3,10 +3,8 @@
     <div class="navbar-top" v-show="isShow">
       <p>
         Зарегистрируйтесь и получите скидку 20% на первый заказ.
-
         <a href="#" class="signup-link">Зарегистрироваться</a>
       </p>
-
       <button class="close-btn" @click="toggleShow">✕</button>
     </div>
 
@@ -17,18 +15,29 @@
 
       <div class="navbar-main__section">
         <nav class="navbar-links">
-          <a href="#">Магазин</a>
+          <div
+            class="dropdown"
+            @mouseenter="showDropdown = true"
+            @mouseleave="showDropdown = false">
+            <a href="#" style="display: flex; align-items: center; gap: 5px">
+              Магазин
+              <Icon name="oui:arrow-down" width="16" height="16" />
+            </a>
+            <ul class="dropdown-menu" v-show="showDropdown">
+              <li><a href="#">Одежда</a></li>
+              <li><a href="#">Обувь</a></li>
+              <li><a href="#">Аксессуары</a></li>
+              <li><a href="#">Электроника</a></li>
+            </ul>
+          </div>
 
           <a href="#">В продаже</a>
-
           <a href="#">Новые поступления</a>
-
           <a href="#">Бренды</a>
         </nav>
 
         <div class="search-container">
           <Icon name="tabler:search" class="search-icon" />
-
           <input
             type="text"
             placeholder="Поиск товаров..."
@@ -38,7 +47,6 @@
 
       <div class="navbar-actions">
         <Icon name="mdi:cart-outline" class="icon-btn" />
-
         <Icon name="mingcute:user-4-line" class="icon-btn" />
       </div>
     </div>
@@ -46,10 +54,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 let isShow = ref(true);
 const isSticky = ref(false);
+const showDropdown = ref(false);
 
 const toggleShow = () => {
   isShow.value = !isShow.value;
@@ -99,7 +108,6 @@ onUnmounted(() => {
 
   .navbar-main {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     padding: 15px 5rem;
     background-color: white;
@@ -122,6 +130,37 @@ onUnmounted(() => {
         text-wrap: nowrap;
         align-items: center;
         gap: 2rem;
+        .dropdown {
+          position: relative;
+
+          .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            list-style: none;
+            min-width: 150px;
+
+            li {
+              margin: 0;
+
+              a {
+                display: block;
+                padding: 8px 15px;
+                text-decoration: none;
+                color: black;
+                transition: color 0.3s;
+
+                &:hover {
+                  background-color: #f3f3f3;
+                  color: gray;
+                }
+              }
+            }
+          }
+        }
         a {
           text-decoration: none;
           color: black;

@@ -11,15 +11,15 @@
       <h4 class="card__info-title">Product Name</h4>
 
       <div class="card__info-stars">
-        <span class="star full"></span>
+        <span class="stars">
+          <Icon
+            name="mdi:star"
+            v-for="star in 4"
+            :key="star"
+            class="star filled" />
 
-        <span class="star full"></span>
-
-        <span class="star full"></span>
-
-        <span class="star half"></span>
-
-        <span class="star empty"></span>
+          <Icon name="mdi:star-half-full" class="star half" />
+        </span>
 
         <span class="rating-value"
           >4.5/<span class="rating-value-top">5</span></span
@@ -87,27 +87,6 @@
       display: flex;
       align-items: center;
 
-      .star {
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        margin-right: 4px;
-        background-size: contain;
-        background-repeat: no-repeat;
-
-        &.full {
-          background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffc107"><path d="M12 .587l3.668 7.428 8.18 1.179-5.897 5.747 1.391 8.102L12 18.897l-7.342 3.866 1.391-8.102L.152 9.194l8.18-1.179z"/></svg>');
-        }
-
-        &.half {
-          background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path d="M22.543 9.771L15.54 8.707 12 2l-3.54 6.707-7.003 1.064 5.062 4.914-1.194 6.958L12 17.813l6.676 3.504-1.194-6.958 5.062-4.914z" fill="%23e0e0e0"/><path d="M12 3.75v12.697l5.703 3.006-1.019-5.95 4.3-4.175-5.942-.902L12 3.75z" fill="%23ffc107" transform="scale(-1, 1) translate(-24, 0)"/></svg>');
-        }
-
-        &.empty {
-          background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e0e0e0"><path d="M12 .587l3.668 7.428 8.18 1.179-5.897 5.747 1.391 8.102L12 18.897l-7.342 3.866 1.391-8.102L.152 9.194l8.18-1.179z"/></svg>');
-        }
-      }
-
       .rating-value {
         font-size: 1rem;
         color: $text-color;
@@ -115,6 +94,15 @@
 
         .rating-value-top {
           color: $second-text-color;
+        }
+      }
+
+      .stars {
+        display: flex;
+
+        .star {
+          color: #ffc107;
+          font-size: 1.2rem;
         }
       }
     }

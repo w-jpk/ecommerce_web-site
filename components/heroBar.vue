@@ -53,7 +53,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90vh;
+  min-height: 90vh;
   padding: 5rem;
   background-color: $background-color;
 
