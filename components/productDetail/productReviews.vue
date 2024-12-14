@@ -30,6 +30,12 @@
             :commentDate="customer.commentDate" />
         </div>
       </div>
+
+      <div class="new-arriwals__section">
+        <div class="new-arriwals__view-all">
+          <span class="view-all__text">Загрузить все отзывы</span>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -146,6 +152,37 @@ const customers = ref([
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
         justify-content: center;
+      }
+    }
+
+    .new-arriwals__section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+
+      .new-arriwals__view-all {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+        height: 40px;
+        border: 1px solid $border-color;
+        border-radius: 2rem;
+        cursor: pointer;
+
+        .view-all__text {
+          color: $text-color;
+        }
+
+        &:hover {
+          background-color: black;
+          border: none;
+
+          .view-all__text {
+            color: $light-text-color;
+          }
+        }
       }
     }
   }

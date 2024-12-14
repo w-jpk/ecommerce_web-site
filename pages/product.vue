@@ -3,9 +3,10 @@
     <history-bar />
     <product-detail />
     <product-detail-info-section />
+    <product-detail-product-recomendations />
   </section>
 </template>
 
 <script setup></script>
 
-<style></style>
+<style lang="scss" scoped></style>
