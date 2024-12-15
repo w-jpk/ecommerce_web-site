@@ -1,4 +1,7 @@
 import { defineStore } from "pinia";
+import image1 from "~/assets/image/dress (1).jpg";
+import image2 from "~/assets/image/dress (2).jpg";
+import image3 from "~/assets/image/dress (3).jpg";
 
 interface Review {
   name: string;
@@ -40,11 +43,7 @@ export const useMyProductsStore = defineStore({
         price: 2245,
         discount: 20,
         count: 10,
-        images: [
-          "~/assets/image/dress (1).jpg",
-          "~/assets/image/dress (2).jpg",
-          "~/assets/image/dress (3).jpg",
-        ],
+        images: [image1, image2, image3],
         rating: 4.5,
         colors: ["#d6c1ac", "#fff", "#000"],
         sizes: ["S", "M", "L"],
@@ -93,6 +92,11 @@ export const useMyProductsStore = defineStore({
       },
     ],
   }),
+  getters: {
+    getProductById: (state) => (id: number) => {
+      return state.products.find((product) => product.id === id);
+    },
+  },
   actions: {
     addProduct(product: Product) {
       this.products.push(product);
