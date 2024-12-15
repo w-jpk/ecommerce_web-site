@@ -14,15 +14,15 @@
 
     <div class="info__content">
       <div v-if="activeInfo === 0">
-        <product-detail-product-charact />
+        <product-page-product-charact />
       </div>
 
       <div v-if="activeInfo === 1">
-        <product-detail-product-reviews />
+        <product-page-product-reviews />
       </div>
 
       <div v-if="activeInfo === 2">
-        <product-detail-product-questions />
+        <product-page-product-questions />
       </div>
     </div>
   </section>

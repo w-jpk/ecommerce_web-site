@@ -24,7 +24,7 @@
 
       <div class="product-reviews__list">
         <div v-for="(customer, index) in customers" :key="index">
-          <product-detail-views-card
+          <product-page-views-card
             :name="customer.name"
             :text="customer.text"
             :commentDate="customer.commentDate" />

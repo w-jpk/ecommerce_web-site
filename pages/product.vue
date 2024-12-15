@@ -1,9 +1,9 @@
 <template>
   <section>
     <history-bar />
-    <product-detail />
-    <product-detail-info-section />
-    <product-detail-product-recomendations />
+    <product-page-product-detail />
+    <product-page-info-section />
+    <product-page-product-recomendations />
   </section>
 </template>
 
