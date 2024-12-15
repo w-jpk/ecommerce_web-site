@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar" :class="{ sticky: isSticky }">
+  <section class="navbar" :class="{ sticky: isSticky }">
     <div class="navbar-top" v-show="isShow">
       <p>
         Зарегистрируйтесь и получите скидку 20% на первый заказ.
@@ -10,6 +10,12 @@
 
     <div class="navbar-main">
       <div class="navbar-logo">
+        <Icon
+          name="mingcute:menu-fill"
+          width="24"
+          height="24"
+          style="color: #000"
+          class="menu-icon" />
         <h1>SHOP.JPK</h1>
       </div>
 
@@ -46,11 +52,12 @@
       </div>
 
       <div class="navbar-actions">
+        <Icon name="tabler:search" class="mob-search-icon" />
         <Icon name="mdi:cart-outline" class="icon-btn" />
         <Icon name="mingcute:user-4-line" class="icon-btn" />
       </div>
     </div>
-  </header>
+  </section>
 </template>
 
 <script setup>
@@ -59,6 +66,11 @@ import { ref, onMounted, onUnmounted } from "vue";
 let isShow = ref(true);
 const isSticky = ref(false);
 const showDropdown = ref(false);
+const isSearchVisible = ref(false);
+
+const toggleSearch = () => {
+  isSearchVisible.value = !isSearchVisible.value;
+};
 
 const toggleShow = () => {
   isShow.value = !isShow.value;
@@ -90,6 +102,14 @@ onUnmounted(() => {
     align-items: center;
     padding: 5px 15px;
 
+    @media screen and (max-width: 1000px) {
+      padding: 5px 0.5rem;
+
+      p {
+        font-size: 12px;
+      }
+    }
+
     .signup-link {
       color: white;
       text-decoration: underline;
@@ -103,6 +123,11 @@ onUnmounted(() => {
       position: absolute;
       right: 5rem;
       cursor: pointer;
+
+      @media screen and (max-width: 1000px) {
+        font-size: 12px;
+        right: 0.5rem;
+      }
     }
   }
 
@@ -114,9 +139,38 @@ onUnmounted(() => {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     gap: 3rem;
 
+    @media screen and (max-width: 1000px) {
+      padding: 15px 2rem;
+      gap: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 15px 1rem;
+      gap: 1rem;
+    }
+
     .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       font-size: 24px;
       font-weight: bold;
+
+      .menu-icon {
+        display: none;
+
+        @media screen and (max-width: 1000px) {
+          display: block;
+          color: black;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+
+          &:hover {
+            color: gray;
+          }
+        }
+      }
     }
 
     .navbar-main__section {
@@ -130,6 +184,7 @@ onUnmounted(() => {
         text-wrap: nowrap;
         align-items: center;
         gap: 2rem;
+
         .dropdown {
           position: relative;
 
@@ -161,6 +216,7 @@ onUnmounted(() => {
             }
           }
         }
+
         a {
           text-decoration: none;
           color: black;
@@ -170,6 +226,10 @@ onUnmounted(() => {
           &:hover {
             color: gray;
           }
+        }
+
+        @media screen and (max-width: 1000px) {
+          display: none;
         }
       }
 
@@ -203,6 +263,10 @@ onUnmounted(() => {
             color: gray;
           }
         }
+
+        @media screen and (max-width: 1200px) {
+          display: none;
+        }
       }
     }
 
@@ -210,6 +274,22 @@ onUnmounted(() => {
       display: flex;
       align-items: center;
       gap: 15px;
+
+      .mob-search-icon {
+        display: none;
+
+        @media screen and (max-width: 1200px) {
+          display: block;
+          color: black;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+
+          &:hover {
+            color: gray;
+          }
+        }
+      }
 
       .icon-btn {
         color: black;
@@ -232,5 +312,27 @@ onUnmounted(() => {
   right: 0;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1200px) {
+  .search-container {
+    display: none;
+  }
+
+  .search-icon-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: black;
+
+    &:hover {
+      color: gray;
+    }
+  }
 }
 </style>
