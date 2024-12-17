@@ -1,10 +1,6 @@
 <template>
   <NuxtLayout>
-    <nav-bar />
-
     <NuxtPage />
-
-    <footer-bar />
   </NuxtLayout>
 </template>
 

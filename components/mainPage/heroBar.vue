@@ -41,7 +41,7 @@
     </div>
 
     <div class="hero-image">
-      <img src="/assets/image/banner.png" alt="Fashion Models" />
+      <img src="/assets/image/model.jpg" alt="Fashion Models" />
     </div>
   </section>
 </template>

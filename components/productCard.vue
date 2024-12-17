@@ -1,10 +1,7 @@
 <template>
   <div class="card">
     <div class="card__product__img">
-      <img
-        class="card__img"
-        src="/assets/image/product.png"
-        alt="Product Card" />
+      <img class="card__img" src="/assets/image/model.jpg" alt="Product Card" />
     </div>
 
     <div class="card__info">

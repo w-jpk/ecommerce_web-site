@@ -1,6 +1,10 @@
 <template>
   <section>
+    <nav-bar />
+
     <slot />
+
+    <footer-bar />
   </section>
 </template>
 
