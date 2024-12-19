@@ -3,7 +3,7 @@
     <div class="navbar-top" v-show="isShow">
       <p>
         Зарегистрируйтесь и получите скидку 20% на первый заказ.
-        <a href="#" class="signup-link">Зарегистрироваться</a>
+        <a class="signup-link" @click="goToPage">Зарегистрироваться</a>
       </p>
       <button class="close-btn" @click="toggleShow">✕</button>
     </div>
@@ -16,7 +16,7 @@
           height="24"
           style="color: #000"
           class="menu-icon" />
-        <h1>SHOP.JPK</h1>
+        <h1 @click="goToHome">SHOP.JPK</h1>
       </div>
 
       <div class="navbar-main__section">
@@ -30,10 +30,10 @@
               <Icon name="oui:arrow-down" width="16" height="16" />
             </a>
             <ul class="dropdown-menu" v-show="showDropdown">
-              <li><a href="#">Одежда</a></li>
-              <li><a href="#">Обувь</a></li>
-              <li><a href="#">Аксессуары</a></li>
-              <li><a href="#">Электроника</a></li>
+              <li><a href="/category">Одежда</a></li>
+              <li><a href="/category">Обувь</a></li>
+              <li><a href="/category">Аксессуары</a></li>
+              <li><a href="/category">Электроника</a></li>
             </ul>
           </div>
 
@@ -53,8 +53,11 @@
 
       <div class="navbar-actions">
         <Icon name="tabler:search" class="mob-search-icon" />
-        <Icon name="mdi:cart-outline" class="icon-btn" />
-        <Icon name="mingcute:user-4-line" class="icon-btn" />
+        <Icon name="mdi:cart-outline" class="icon-btn" @click="goToCart" />
+        <Icon
+          name="mingcute:user-4-line"
+          class="icon-btn"
+          @click="goToProfile" />
       </div>
     </div>
   </section>
@@ -67,6 +70,22 @@ let isShow = ref(true);
 const isSticky = ref(false);
 const showDropdown = ref(false);
 const isSearchVisible = ref(false);
+
+const goToPage = () => {
+  window.location.href = "/auth";
+};
+
+const goToHome = () => {
+  window.location.href = "/";
+};
+
+const goToCart = () => {
+  window.location.href = "/cart";
+};
+
+const goToProfile = () => {
+  window.location.href = "/profile";
+};
 
 const toggleSearch = () => {
   isSearchVisible.value = !isSearchVisible.value;
@@ -113,6 +132,11 @@ onUnmounted(() => {
     .signup-link {
       color: white;
       text-decoration: underline;
+      cursor: pointer;
+
+      &:hover {
+        color: $second-text-color;
+      }
     }
 
     .close-btn {
@@ -170,6 +194,10 @@ onUnmounted(() => {
             color: gray;
           }
         }
+      }
+
+      h1 {
+        cursor: pointer;
       }
     }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="card__product__img">
+    <div class="card__product__img" @click="goToProductPage">
       <img class="card__img" src="/assets/image/model.jpg" alt="Product Card" />
     </div>
 
@@ -36,7 +36,11 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const goToProductPage = () => {
+  window.location.href = "/product";
+};
+</script>
 
 <style lang="scss" scoped>
 .card {

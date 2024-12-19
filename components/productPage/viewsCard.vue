@@ -21,7 +21,7 @@
     <div class="comment-content">
       <p class="comment-text">{{ text }}</p>
 
-      <img class="comment-img" src="/assets/image/model.jpg" alt="" />
+      <img class="comment-img" src="/assets/image/review.jpg" alt="" />
     </div>
   </div>
 </template>

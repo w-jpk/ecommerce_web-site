@@ -13,7 +13,7 @@
         ваше чувство стиля.
       </p>
 
-      <button class="hero-button">Купить сейчас</button>
+      <button class="hero-button" @click="goToStore">Купить сейчас</button>
 
       <div class="hero-stats">
         <div class="stat-item">
@@ -46,7 +46,11 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+const goToStore = () => {
+  window.location.href = "/category";
+};
+</script>
 
 <style lang="scss" scoped>
 .hero {

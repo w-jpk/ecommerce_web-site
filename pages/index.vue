@@ -5,6 +5,7 @@
     <main-page-product-section />
     <main-page-category-section />
     <main-page-customers-section />
+    <faq />
   </section>
 </template>
 

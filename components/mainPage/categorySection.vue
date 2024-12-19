@@ -4,19 +4,31 @@
       <h4 class="category__title">поиск по стилю одежды</h4>
 
       <div class="category__grid">
-        <div class="item item1"><h3 class="text">Casual</h3></div>
+        <div class="item item1" @click="goToCategoryPage">
+          <h3 class="text">Casual</h3>
+        </div>
 
-        <div class="item item2"><h3 class="text">Formal</h3></div>
+        <div class="item item2" @click="goToCategoryPage">
+          <h3 class="text">Formal</h3>
+        </div>
 
-        <div class="item item3"><h3 class="text">Party</h3></div>
+        <div class="item item3" @click="goToCategoryPage">
+          <h3 class="text">Party</h3>
+        </div>
 
-        <div class="item item4"><h3 class="text">Gym</h3></div>
+        <div class="item item4" @click="goToCategoryPage">
+          <h3 class="text">Gym</h3>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+const goToCategoryPage = () => {
+  window.location.href = "/category";
+};
+</script>
 
 <style lang="scss" scoped>
 .container {
