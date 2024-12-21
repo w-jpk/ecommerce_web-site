@@ -5,7 +5,9 @@
     </div>
 
     <div class="card__info__wishlist">
-      <Icon name="mdi:heart-outline" class="card__info__wishlist-icon" />
+      <Icon name="mdi:heart" class="float" />
+
+      <Icon name="mdi:heart-outline" class="outline" />
     </div>
 
     <div class="card__product__img" @click="goToProductPage">
@@ -84,14 +86,26 @@ const goToProductPage = () => {
     position: absolute;
     align-self: flex-end;
     margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .card__info__wishlist-icon {
-      width: 28px;
-      height: 28px;
+    .float {
+      position: absolute;
+      font-size: 2rem;
       color: white;
 
       &:hover {
-        color: red;
+        cursor: pointer;
+      }
+    }
+
+    .outline {
+      font-size: 1.7rem;
+      color: black;
+
+      &:hover {
+        color: indigo;
         cursor: pointer;
       }
     }

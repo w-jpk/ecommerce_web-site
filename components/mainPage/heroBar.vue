@@ -2,8 +2,8 @@
   <section class="hero">
     <div class="hero-content">
       <h1 class="hero-title">
-        НАЙДИТЕ ОДЕЖДУ, <br />
-        КОТОРАЯ СООТВЕТСТВУЕТ <br />
+        НАЙДИТЕ ОДЕЖДУ,<br />
+        КОТОРАЯ СООТВЕТСТВУЕТ<br />
         ВАШЕМУ СТИЛЮ
       </h1>
 

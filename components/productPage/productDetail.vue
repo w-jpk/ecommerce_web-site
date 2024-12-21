@@ -17,7 +17,21 @@
     </div>
 
     <div class="product-info">
-      <h1 class="product-title">{{ product.title }}</h1>
+      <div class="product-header">
+        <h1 class="product-title">{{ product.title }}</h1>
+
+        <Icon
+          name="mdi:heart-outline"
+          class="wishlist"
+          v-if="!isWishlisted"
+          @click="togleWish" />
+
+        <Icon
+          name="mdi:heart"
+          class="wishlist filled"
+          v-if="isWishlisted"
+          @click="togleWish" />
+      </div>
 
       <div class="rating">
         <span class="stars">
@@ -105,16 +119,22 @@ import image1 from "~/assets/image/dress (1).jpg";
 import image2 from "~/assets/image/dress (2).jpg";
 import image3 from "~/assets/image/dress (3).jpg";
 
+const isWishlisted = ref(false);
+
+const togleWish = () => {
+  isWishlisted.value = !isWishlisted.value;
+};
+
 const product = {
   title: "Платье лапша в обтяг с разрезом трикотажное длинное",
   rating: 4.5,
-  price: 260,
+  price: 180,
   originalPrice: 300,
   discount: 40,
   description:
     "Платье трикотажное женское с разрезом, станет незаменимым элементом гардероба любой модной женщины. Оно теплое и стильное, изготовлено из высококачественного трикотажного материала, обеспечивая вам комфорт в прохладные осенние дни. ",
   colors: ["#d6c1ac", "#fff", "#000"],
-  sizes: ["S", "M", "L"],
+  sizes: ["S", "M", "L", "XL"],
   images: [image1, image2, image3],
 };
 
@@ -174,10 +194,25 @@ const decrementQuantity = () => {
   .product-info {
     width: 100%;
 
-    .product-title {
-      font-family: "Integral CF", sans-serif;
-      font-size: 2rem;
-      font-weight: bold;
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .product-title {
+        font-family: "Integral CF", sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .wishlist {
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      .filled {
+        color: red;
+      }
     }
 
     .rating {
@@ -339,9 +374,9 @@ const decrementQuantity = () => {
         transition: color 0.3s;
 
         &:hover {
-          background-color: $background-color-light;
-          color: $second-text-color;
-          border: 1px solid $second-text-color;
+          background-color: white;
+          color: $text-color;
+          border: 1px solid $text-color;
         }
       }
     }

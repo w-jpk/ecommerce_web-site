@@ -5,6 +5,7 @@
         Зарегистрируйтесь и получите скидку 20% на первый заказ.
         <a class="signup-link" @click="goToPage">Зарегистрироваться</a>
       </p>
+
       <button class="close-btn" @click="toggleShow">✕</button>
     </div>
 
@@ -29,21 +30,28 @@
               Магазин
               <Icon name="oui:arrow-down" width="16" height="16" />
             </a>
+
             <ul class="dropdown-menu" v-show="showDropdown">
               <li><a href="/category">Одежда</a></li>
+
               <li><a href="/category">Обувь</a></li>
+
               <li><a href="/category">Аксессуары</a></li>
+
               <li><a href="/category">Электроника</a></li>
             </ul>
           </div>
 
           <a href="#">В продаже</a>
+
           <a href="#">Новые поступления</a>
+
           <a href="#">Бренды</a>
         </nav>
 
         <div class="search-container">
           <Icon name="tabler:search" class="search-icon" />
+
           <input
             type="text"
             placeholder="Поиск товаров..."
@@ -53,7 +61,11 @@
 
       <div class="navbar-actions">
         <Icon name="tabler:search" class="mob-search-icon" />
+
         <Icon name="mdi:cart-outline" class="icon-btn" @click="goToCart" />
+
+        <icon name="mdi:heart-outline" class="icon-btn" />
+
         <Icon
           name="mingcute:user-4-line"
           class="icon-btn"

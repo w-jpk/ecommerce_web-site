@@ -4,9 +4,9 @@
       <div class="product-reviews__actions__container">
         <h3 class="product-reviews__actions__title">
           Отзывы
-          <span class="product-reviews__actions__count"
-            >({{ customers.length }})</span
-          >
+          <span class="product-reviews__actions__count">
+            ({{ customers.length }})
+          </span>
         </h3>
 
         <div class="product-reviews__actions">
@@ -16,11 +16,13 @@
 
           <div class="product-reviews__actions__sort">Последние</div>
 
-          <button class="product-reviews__actions__write">
+          <button class="product-reviews__actions__write" @click="togleShow">
             Написать отзыв
           </button>
         </div>
       </div>
+
+      <product-page-reviews-form v-show="isShow" />
 
       <div class="product-reviews__list">
         <div v-for="(customer, index) in customers" :key="index">
@@ -42,6 +44,12 @@
 
 <script setup>
 import { ref } from "vue";
+
+const isShow = ref(false);
+
+const togleShow = () => {
+  isShow.value = true;
+};
 
 const customers = ref([
   {

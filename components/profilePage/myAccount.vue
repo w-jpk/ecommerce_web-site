@@ -67,7 +67,7 @@ const items = ref([
   },
 ]);
 
-const activeItem = ref(1);
+const activeItem = ref(6);
 </script>
 
 <style lang="scss" scoped>
